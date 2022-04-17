@@ -1,0 +1,15 @@
+version: '3'
+services:
+  data-api:
+    image: "lebsack/data-api:${TAG_VERSION}"
+    environment:
+      - COCKROACH_URI=postgresql://root@4054eb123985:26257/defaultdb?sslmode=disable
+    build:
+      context: services/
+      dockerfile: data_api/Dockerfile
+  db:
+   image: cockroachdb/cockroach
+   ports:
+     - "26257:26257"
+     - "8080:8080"
+   command: start-single-node --insecure

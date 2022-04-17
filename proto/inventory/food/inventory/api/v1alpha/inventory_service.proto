@@ -1,6 +1,6 @@
 syntax = "proto3";
 package food.inventory.api.v1alpha;
-option go_package = "HackDavisFood/services/inventory/pb/food/inventory/api/v1apla;orders_api_v1alpha";
+option go_package = "HackDavisFood/services/inventory/pb/food/inventory/api/v1alpha;orders_api_v1alpha";
 
 import "inventory/food/inventory/api/v1alpha/inventory.proto";
 

@@ -1,6 +1,6 @@
 syntax = "proto3";
 package food.inventory.common.v1alpha;
-option go_package = "HackDavisFood/services/inventory/pb/food/inventory/common/v1apla;orders_common_v1alpha";
+option go_package = "HackDavisFood/services/inventory/pb/food/inventory/common/v1alpha;orders_common_v1alpha";
 
 import "google/protobuf/timestamp.proto";
 
