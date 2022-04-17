@@ -1,0 +1,24 @@
+syntax = "proto3";
+package food.data_api.v1alpha;
+option go_package = "HackDavisFood/services/data_api/pb/food/data_api/v1alpha;data_api_v1alpha";
+
+import "orders/food/orders/common/v1alpha/messages.proto";
+import "inventory/food/inventory/common/v1alpha/messages.proto";
+
+message UpsertOrderRequest {
+    food.orders.common.v1alpha.Order order = 1;
+}
+
+message UpsertOrderResponse {}
+
+message InsertProductRequest {
+    food.inventory.common.v1alpha.Product product = 1; 
+}
+
+message InsertProductResponse{}
+
+message UpdateInventoryRequest {
+    repeated food.inventory.common.v1alpha.Item item = 1; 
+}
+
+message UpdateInventoryResponse {}
