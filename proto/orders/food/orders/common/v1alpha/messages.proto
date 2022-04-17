@@ -4,6 +4,20 @@ option go_package = "HackDavisFood/services/orders/pb/food/orders/common/v1apla;
 
 import "google/protobuf/timestamp.proto";
 
+enum OrderStatus {
+    OrderStatus_UNSPECIFIED = 0;
+    // OrderStatus_OPEN order is awaiting a driver 
+    OrderStatus_OPEN = 1;
+    // OrderStatus_ACCEPTED driver has claimed an order
+    OrderStatus_ACCEPTED = 2;
+    // OrderStatus_PICKED_UP driver has picked up an order and on way to the food bank
+    OrderStatus_PICKED_UP = 3;
+    // OrderStatus_PROCESSING driver is unloading an order
+    OrderStatus_PROCESSING = 4;
+    // OrderStatus_COMPLETE order has been fully deliverd to the Food Bank
+    OrderStatus_COMPLETE = 5;
+}
+
 // Order tracks a request from a Supplier to pickup food and deliver to the Food Bank
 message Order {
     // Id unique identifer for an order
@@ -17,7 +31,7 @@ message Order {
     // SupplierId id of the supplier requesting the pickup
     string supplier_id = 5;
     // Status indicates what stage the Order is in
-    string status = 6;
+    OrderStatus status = 6;
     // Image bytes of the image of the Order provided by the supplier
     repeated bytes image = 7;
     // UpdatedAt when the Order was last updated

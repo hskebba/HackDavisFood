@@ -1,0 +1,62 @@
+syntax = "proto3";
+package food.orders.api.v1alpha;
+option go_package = "HackDavisFood/services/orders/pb/food/orders/api/v1apla;orders_api_v1alpha";
+
+import "orders/food/orders/common/v1alpha/messages.proto";
+
+// NewOrderRequest request from a Supplier for a new Order
+// For this request, supplier_id is not required as it will be determined by the phone_number
+// Additionaly, supplier_name is only required for new suppliers
+message NewOrderRequest {
+    // Order details of the order
+    food.orders.common.v1alpha.Order order = 1;
+    // PhoneNumber number the request was submitted from
+    string phone_number = 2;
+    // SupplierName name of the supplier
+    string supplier_name = 3;
+}
+
+// NewOrderResponse empty response on success
+message NewOrderResponse {}
+
+// GetOrdersRequest
+message GetOrdersRequest {}
+
+// GetOrdersResponse empty response on success
+message GetOrdersResponse {
+    repeated food.orders.common.v1alpha.Order orders = 1;
+}
+
+// GetOrdersRequest makes a request to the 
+message GetOrderRequest {
+    string order_id = 1;
+}
+
+message GetOrderResponse {
+    food.orders.common.v1alpha.Order orders = 1;
+}
+
+message ProcessOrderRequest {
+    string order_id = 1;
+}
+
+message ProcessOrderResponse {}
+
+message CompleteOrderRequest {
+    string order_id = 1;
+}
+
+message CompleteOrderResponse {}
+
+message ClaimOrderRequest {
+    string driver_id = 1;
+    string order_id = 2;
+}
+
+message ClaimOrderResponse {}
+
+message CancelOrderRequest {
+    string order_id = 1;
+}
+
+message CancelOrderResponse {}

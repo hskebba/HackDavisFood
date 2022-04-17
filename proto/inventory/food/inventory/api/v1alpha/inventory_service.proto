@@ -1,0 +1,15 @@
+syntax = "proto3";
+package food.inventory.api.v1alpha;
+option go_package = "HackDavisFood/services/inventory/pb/food/inventory/api/v1apla;orders_api_v1alpha";
+
+import "inventory/food/inventory/api/v1alpha/inventory.proto";
+
+service InventoryService {
+    rpc GetProducts (GetProductsRequest) returns (GetProductsResponse) {}
+
+    rpc GetProduct (GetProductRequest) returns (GetProductResponse) {}
+
+    rpc InsertProduct (InsertProductRequest) returns (InsertProductResponse) {}
+    
+    rpc GetAggregateInventory (GetAggregateInventoryRequest) returns (GetAggregateInventoryResponse) {}
+}

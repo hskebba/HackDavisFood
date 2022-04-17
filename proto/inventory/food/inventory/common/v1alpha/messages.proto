@@ -36,3 +36,9 @@ message Item {
     google.protobuf.Timestamp delivered_at = 4;
     google.protobuf.Timestamp expire_at = 5;
 }
+
+message AggregateInventoryData {
+    Product product = 1;
+    int32 quantity = 2;
+    repeated Item items = 3;
+}
