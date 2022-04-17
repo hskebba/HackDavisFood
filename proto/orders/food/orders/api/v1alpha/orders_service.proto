@@ -1,0 +1,28 @@
+syntax = "proto3";
+package food.orders.api.v1alpha;
+option go_package = "HackDavisFood/services/orders/pb/food/orders/api/v1alpha;orders_api_v1alpha";
+
+import "orders/food/orders/api/v1alpha/orders.proto";
+
+service OrdersService {
+    // NewOrder process a new Order from a supplier
+    rpc NewOrder (NewOrderRequest) returns (NewOrderResponse) {}
+
+    // GetOrders returns all orders
+    rpc GetOrders (GetOrdersRequest) returns (GetOrdersResponse) {}
+
+    // GetOrder returns a specific Order by Id
+    rpc GetOrder (GetOrderRequest) returns (GetOrderResponse) {}
+
+    // ProcessOrder updates the status of an order when the Driver begins processing the order at the Food Bank
+    rpc ProcessOrder (ProcessOrderRequest) returns (ProcessOrderResponse) {}
+
+    // CompleteOrder updates the status of an order to Complete 
+    rpc CompleteOrder (CompleteOrderRequest) returns (CompleteOrderResponse) {}
+
+    // ClaimOrder used by a Driver to take ownership of an order
+    rpc ClaimOrder (ClaimOrderRequest) returns (ClaimOrderResponse) {}
+
+    // CancelOrder unassign a order from a driver
+    rpc CancelOrder (CancelOrderRequest) returns (CancelOrderResponse) {}
+}
