@@ -1,0 +1,27 @@
+syntax = "proto3";
+package food.orders.common.v1alpha;
+option go_package = "HackDavisFood/services/orders/pb/food/orders/common/v1apla;orders_common_v1alpha";
+
+import "google/protobuf/timestamp.proto";
+
+// Order tracks a request from a Supplier to pickup food and deliver to the Food Bank
+message Order {
+    // Id unique identifer for an order
+    string id = 1;
+    // Description user supplied info of the order
+    string description = 2;
+    // PickupAt user suplied datetime for the requested pickup time
+    google.protobuf.Timestamp pickup_at = 3;
+    // Location address of the pickup
+    string location = 4;
+    // SupplierId id of the supplier requesting the pickup
+    string supplier_id = 5;
+    // Status indicates what stage the Order is in
+    string status = 6;
+    // Image bytes of the image of the Order provided by the supplier
+    repeated bytes image = 7;
+    // UpdatedAt when the Order was last updated
+    google.protobuf.Timestamp updated_at = 8;
+    // CreatedAt when the order was created
+    google.protobuf.Timestamp created_at = 9;
+}

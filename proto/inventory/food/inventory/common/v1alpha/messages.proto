@@ -1,0 +1,38 @@
+syntax = "proto3";
+package food.inventory.common.v1alpha;
+option go_package = "HackDavisFood/services/inventory/pb/food/inventory/common/v1apla;orders_common_v1alpha";
+
+import "google/protobuf/timestamp.proto";
+
+// NutritionalData nutrition data for a Product
+message NutritionalData {
+    // Id uuid4 identifier of the nutritional data
+    string id = 1;
+    // Calories number of calories in the product in grams
+    float calories = 2;
+    // Carbs number of carbs in the product in grams
+    float carbs = 3;
+    // Fat amount of fat in the product in grams
+    float fat = 4;
+    // Protein amount of protein in grams
+    float protein = 5;
+    // Sodium amount of sodium in grams
+    float sodium = 6;
+}
+
+// Product items the Food Bank stocks. Ex apples, bananas, chicken would be considered products
+message Product {
+    string id = 1;
+    repeated bytes image = 2;
+    string name  = 3;
+    NutritionalData nutritional_data = 4;
+    repeated string tags = 5;
+}
+
+message Item {
+    string id = 1;
+    string product_id = 2;
+    string order_id = 3;
+    google.protobuf.Timestamp delivered_at = 4;
+    google.protobuf.Timestamp expire_at = 5;
+}
